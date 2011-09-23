@@ -1,14 +1,8 @@
 <!--
-    This is HTML 4.01 Strict DTD, which excludes the presentation
-    attributes and elements that W3C expects to phase out as
-    support for style sheets matures. Authors should use the Strict
-    DTD when possible, but may use the Transitional DTD when support
-    for presentation attribute and elements is required.
+    This is an experimental HTML 5 DTD derived from the HTML 4.01
+    Strict DTD.
 
-    HTML 4 includes mechanisms for style sheets, scripting,
-    embedding objects, improved support for right to left and mixed
-    direction text, and enhancements to forms for improved
-    accessibility for people with disabilities.
+    The HTML 4.01 Strict DTD was:
 
           Draft: $Date: 1999/12/24 23:37:48 $
 
@@ -21,17 +15,11 @@
 
         http://www.w3.org/TR/1999/REC-html401-19991224
 
-
-    The HTML 4.01 specification includes additional
-    syntactic constraints that cannot be expressed within
-    the DTDs.
-
 -->
 <!--
     Typical usage:
 
-    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-            "http://www.w3.org/TR/html4/strict.dtd">
+    <!DOCTYPE html>
     <html>
     <head>
     ...
@@ -40,36 +28,6 @@
     ...
     </body>
     </html>
-
-    The URI used as a system identifier with the public identifier allows
-    the user agent to download the DTD and entity sets as needed.
-
-    The FPI for the Transitional HTML 4.01 DTD is:
-
-        "-//W3C//DTD HTML 4.01 Transitional//EN"
-
-    This version of the transitional DTD is:
-
-        http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd
-
-    If you are writing a document that includes frames, use
-    the following FPI:
-
-        "-//W3C//DTD HTML 4.01 Frameset//EN"
-
-    This version of the frameset DTD is:
-
-        http://www.w3.org/TR/1999/REC-html401-19991224/frameset.dtd
-
-    Use the following (relative) URIs to refer to
-    the DTDs and entity definitions of this specification:
-
-    "strict.dtd"
-    "loose.dtd"
-    "frameset.dtd"
-    "HTMLlat1.ent"
-    "HTMLsymbol.ent"
-    "HTMLspecial.ent"
 
 -->
 
@@ -259,7 +217,7 @@
 
 <!--=================== Document Body ====================================-->
 
-<!ELEMENT BODY O O (%block;|SCRIPT)+ +(INS|DEL) -- document body -->
+<!ELEMENT BODY O O (%block;|SCRIPT)* +(INS|DEL) -- document body -->
 <!ATTLIST BODY
   %attrs;                              -- %coreattrs, %i18n, %events --
   onload          %Script;   #IMPLIED  -- the document has been loaded --
