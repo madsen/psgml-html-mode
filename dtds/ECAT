@@ -1,6 +1,8 @@
         -- catalog: SGML Open style entity catalog for HTML --
         -- $Id: catalog,v 1.2 1994/11/30 23:45:18 connolly Exp $ --
 
+PUBLIC "-//PSGML//DTD HTML 5//EN"                 ced/html5.ced
+
 PUBLIC  "-//IETF//DTD HTML//EN"                   ced/html4loose.ced
 PUBLIC  "-//W3C//DTD HTML 4.01 Transitional//EN"  ced/html4loose.ced
 

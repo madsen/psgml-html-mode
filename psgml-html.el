@@ -122,32 +122,42 @@
 
 ;; menus for creating new documents
 (defvar psgml-html-dtd-menu
-  '(( "HTML 4.01 Transitional"
+  '(( "HTML 5"
+      "<!DOCTYPE html>\n" )
+
+    ( "HTML 4.01 Transitional"
       "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"
-        \"http://www.w3.org/TR/html4/loose.dtd\">" )
+        \"http://www.w3.org/TR/html4/loose.dtd\">\n" )
 
     ( "HTML 4.01 Strict"
       "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\"
-        \"http://www.w3.org/TR/html4/strict.dtd\">" )
+        \"http://www.w3.org/TR/html4/strict.dtd\">\n" )
 
     ( "HTML 3.2"
-      "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2//EN\">" )
+      "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2//EN\">\n" )
 
     ( "HTML 2.0"
-      "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML//EN\">" )
+      "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML//EN\">\n" )
 
     ( "HTML 2.0 Level 1"
-      "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0 Level 1//EN\">" )
+      "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0 Level 1//EN\">\n" )
 
     ( "HTML 2.0 Strict"
-      "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0 Strict//EN\">" )
+      "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0 Strict//EN\">\n" )
 
     ( "HTML 2.0 Strict Level 1"
-      "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0 Strict Level 1//EN\">")
+      "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0 Strict Level 1//EN\">\n" )
     ))
 
 (or sgml-custom-dtd
     (setq sgml-custom-dtd psgml-html-dtd-menu))
+
+(defadvice sgml-setup-doctype (before psgml-html5 activate)
+  "Add a fake public id for HTML 5 so PSGML can find the DTD."
+  (and (string= (ad-get-arg 0) "HTML")
+       (null    (ad-get-arg 1))
+       (ad-set-arg 1 (cons "-//PSGML//DTD HTML 5//EN"
+                           (cons nil default-directory)))))
 
 (defvar psgml-html-mode-hook nil
   "A hook or list of hooks to be run when entering psgml-html-mode")

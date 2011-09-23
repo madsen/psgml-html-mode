@@ -3,6 +3,8 @@ OVERRIDE YES
         -- catalog: SGML Open style entity catalog for HTML --
         -- $Id: catalog,v 1.2 1994/11/30 23:45:18 connolly Exp $ --
 
+PUBLIC "-//PSGML//DTD HTML 5//EN"                 html5.dtd
+
         -- Ways to refer to Level 4.01: most general to most specific --
 PUBLIC  "-//IETF//DTD HTML//EN"                   html4loose.dtd
 PUBLIC  "-//W3C//DTD HTML 4.01 Transitional//EN"  html4loose.dtd
