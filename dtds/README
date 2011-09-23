@@ -1,0 +1,76 @@
+This SGML library configuration works with both psgml and sgmls.
+
+For sgmls use e.g.:
+
+	sgmls -s -m /usr/local/lib/sgml/CATALOG  \
+		/usr/local/lib/sgml/html.decl ~/public_html/mak.html
+
+For psgml, use a .emacs like:
+
+; PSGML settings from m.koster@nexor.co.uk
+; For more info see <http://www.lysator.liu.se/projects/about_psgml.html>
+
+(autoload 'sgml-mode "psgml" "Major mode to edit SGML files." t )
+
+(setq sgml-always-quote-attributes t)      ; expected by many clients
+(setq sgml-auto-insert-required-elements t)
+(setq sgml-indent-data t)
+(setq sgml-indent-step 2)
+(setq sgml-suppress-warning t)
+(setq sgml-auto-activate-dtd t)            ; preload dtd
+(setq sgml-omittag nil)
+(setq sgml-shorttag nil)
+(setq sgml-recompile-out-of-date-cdtd nil)
+
+; menus for creating new documents
+(setq sgml-custom-dtd '
+      (
+       ( "HTML 2.0"
+               "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML//EN\">" )
+
+       ( "HTML 2.0 Level 1"
+               "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0 Level 1//EN\">" )
+
+       ( "HTML 2.0 Strict"
+               "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0 Strict//EN\">" )
+
+       ( "HTML 2.0 Strict Level 1"
+               "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0 Strict Level 1//EN
+\">")
+       ( "HTML 3.0"
+               "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 3.0//EN//\" [ <!ENTITY
+ % HTML.Recommended \"INCLUDE\"> ] >")
+
+       )
+)
+
+(defun html-mode ()
+  (interactive)
+  (sgml-mode)
+  (make-local-variable 'sgml-declaration)
+  (make-local-variable 'sgml-default-doctype-name)
+  (setq sgml-declaration             "/usr/local/lib/sgml/html.decl"
+        sgml-default-doctype-name    "html"
+        sgml-always-quote-attributes t
+        sgml-indent-step             2
+        sgml-indent-data             t
+        sgml-minimize-attributes     nil
+        sgml-omittag                 t
+        sgml-recompile-out-of-date-cdtd nil
+        sgml-shortag                 t  ))
+
+; End of PSGML settings
+; (Well, you need to sort out the auto-mode-alist
+
+(setq auto-mode-alist
+      (append '(
+                ("\\.sgml$" . sgml-mode)
+                ("\\.html$" . html-mode)
+                ("\\.htm$" .  html-mode)
+		("\\.html3$" . sgml-mode)
+		("\\.ht3$" .   sgml-mode)
+                )
+              auto-mode-alist
+              )
+      )
+

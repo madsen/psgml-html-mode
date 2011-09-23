@@ -1,0 +1,49 @@
+        -- catalog: SGML Open style entity catalog for HTML --
+        -- $Id: catalog,v 1.2 1994/11/30 23:45:18 connolly Exp $ --
+
+PUBLIC  "-//IETF//DTD HTML//EN"                   ced/html4loose.ced
+PUBLIC  "-//W3C//DTD HTML 4.01 Transitional//EN"  ced/html4loose.ced
+
+PUBLIC "-//W3C//DTD HTML 4.01//EN"                ced/html4strict.ced
+PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"       ced/html4frame.ced
+
+        -- Ways to refer to Level 3.2: most general to most specific --
+PUBLIC  "-//W3C//DTD HTML 3.2//EN"              ced/html32.ced
+PUBLIC  "-//W3C//DTD HTML 3.2 Final//EN"        ced/html32.ced
+PUBLIC  "-//W3C//DTD HTML 3.2 Draft//EN"        ced/html32.ced
+PUBLIC  "-//W3C//DTD HTML 3.2 Draft 19960821//EN" ced/html32.ced
+
+        -- Ways to refer to Level 2: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML 2.0//EN"             ced/html.ced
+PUBLIC  "-//IETF//DTD HTML Level 2//EN"         ced/html.ced
+PUBLIC  "-//IETF//DTD HTML 2.0 Level 2//EN"     ced/html.ced
+
+        -- Ways to refer to Level 1: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML Level 1//EN"         ced/html-1.ced
+PUBLIC  "-//IETF//DTD HTML 2.0 Level 1//EN"     ced/html-1.ced
+
+        -- Ways to refer to Level 0: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML Level 0//EN"         ced/html-0.ced
+PUBLIC  "-//IETF//DTD HTML 2.0 Level 0//EN"     ced/html-0.ced
+
+
+        -- Ways to refer to Strict Level 2: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML Strict//EN"                  ced/html-s.ced
+PUBLIC  "-//IETF//DTD HTML 2.0 Strict//EN"              ced/html-s.ced
+PUBLIC  "-//IETF//DTD HTML Strict Level 2//EN"          ced/html-s.ced
+PUBLIC  "-//IETF//DTD HTML 2.0 Strict Level 2//EN"      ced/html-s.ced
+
+        -- Ways to refer to Strict Level 1: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML Strict Level 1//EN"          ced/html-1s.ced
+PUBLIC  "-//IETF//DTD HTML 2.0 Strict Level 1//EN"      ced/html-1s.ced
+
+        -- Ways to refer to Strict Level 0: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML Strict Level 0//EN"          ced/html-0s.ced
+PUBLIC  "-//IETF//DTD HTML 2.0 Strict Level 0//EN"      ced/html-0s.ced
+
+        -- ISO latin 1 entity set for HTML --
+PUBLIC  "ISO 8879-1986//ENTITIES Added Latin 1//EN//HTML"       ced/ISOlat1.ced
+
+PUBLIC "-//W3C//ENTITIES Latin1//EN//HTML"     ced/HTMLlat1.ced
+PUBLIC "-//W3C//ENTITIES Special//EN//HTML"    ced/HTMLspecial.ced
+PUBLIC "-//W3C//ENTITIES Symbols//EN//HTML"    ced/HTMLsymbol.ced

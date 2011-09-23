@@ -1,0 +1,54 @@
+OVERRIDE YES
+
+        -- catalog: SGML Open style entity catalog for HTML --
+        -- $Id: catalog,v 1.2 1994/11/30 23:45:18 connolly Exp $ --
+
+        -- Ways to refer to Level 4.01: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML//EN"                   html4loose.dtd
+PUBLIC  "-//W3C//DTD HTML 4.01 Transitional//EN"  html4loose.dtd
+
+PUBLIC "-//W3C//DTD HTML 4.01//EN"                html4strict.dtd
+PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"       html4frame.dtd
+
+        -- Ways to refer to Level 3.2: most general to most specific --
+PUBLIC  "-//W3C//DTD HTML 3.2//EN"              html32.dtd
+PUBLIC  "-//W3C//DTD HTML 3.2 Final//EN"        html32.dtd
+PUBLIC  "-//W3C//DTD HTML 3.2 Draft//EN"        html32.dtd
+PUBLIC  "-//W3C//DTD HTML 3.2 Draft 19960821//EN" html32.dtd
+
+        -- Ways to refer to Level 2: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML 2.0//EN"             html.dtd
+PUBLIC  "-//IETF//DTD HTML Level 2//EN"         html.dtd
+PUBLIC  "-//IETF//DTD HTML 2.0 Level 2//EN"     html.dtd
+
+        -- Ways to refer to Level 1: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML Level 1//EN"         html-1.dtd
+PUBLIC  "-//IETF//DTD HTML 2.0 Level 1//EN"     html-1.dtd
+
+        -- Ways to refer to Level 0: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML Level 0//EN"         html-0.dtd
+PUBLIC  "-//IETF//DTD HTML 2.0 Level 0//EN"     html-0.dtd
+
+
+        -- Ways to refer to Strict Level 2: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML Strict//EN"                  html-s.dtd
+PUBLIC  "-//IETF//DTD HTML 2.0 Strict//EN"              html-s.dtd
+PUBLIC  "-//IETF//DTD HTML Strict Level 2//EN"          html-s.dtd
+PUBLIC  "-//IETF//DTD HTML 2.0 Strict Level 2//EN"      html-s.dtd
+
+        -- Ways to refer to Strict Level 1: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML Strict Level 1//EN"          html-1s.dtd
+PUBLIC  "-//IETF//DTD HTML 2.0 Strict Level 1//EN"      html-1s.dtd
+
+        -- Ways to refer to Strict Level 0: most general to most specific --
+PUBLIC  "-//IETF//DTD HTML Strict Level 0//EN"          html-0s.dtd
+PUBLIC  "-//IETF//DTD HTML 2.0 Strict Level 0//EN"      html-0s.dtd
+
+        -- ISO latin 1 entity set for HTML --
+PUBLIC  "ISO 8879-1986//ENTITIES Added Latin 1//EN//HTML"       ISOlat1.ent
+
+PUBLIC "-//W3C//ENTITIES Latin1//EN//HTML"     HTMLlat1.ent
+PUBLIC "-//W3C//ENTITIES Special//EN//HTML"    HTMLspecial.ent
+PUBLIC "-//W3C//ENTITIES Symbols//EN//HTML"    HTMLsymbol.ent
+
+DOCTYPE HTML                                  html4loose.dtd
