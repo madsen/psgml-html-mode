@@ -25,13 +25,23 @@
 ;; Installation:
 ;;-------------------------------------------------------------------------
 ;;
-;; After installing psgml-html.el in a directory where Emacs can find it,
-;; put this in your .emacs:
+;; First, copy everything from the dtds directory to /usr/local/share/sgml.
+;; You can use a different directory if you prefer.
+;;
+;; Second, install PSGML from http://sourceforge.net/projects/psgml/
+;; Currently, I'm using PSGML 1.2.5 and GNU Emacs 23.2.
+;;
+;; Finally, install psgml-html.el in a directory where Emacs can find it,
+;; and put this in your .emacs:
 ;;
 ;;   (autoload 'psgml-html-mode "psgml-html"
-;;     "Pseudo major mode for editing HTML with PSGML." t)
+;;     "Derived major mode for editing HTML with PSGML (see `sgml-mode')." t)
 ;;   (add-to-list 'auto-mode-alist
 ;;                '("\\.s?html?\\(\\.[a-zA-Z_]+\\)?\\'" . psgml-html-mode))
+;;
+;;   ;; This is not required, but I recommend it, or you'll get annoying
+;;   ;; comments like <!-- one of (...) --> when you insert certain elements.
+;;   (setq sgml-insert-missing-element-comment nil)
 ;;
 ;; You also need to set `psgml-base-directory' if you installed the DTD
 ;; files somewhere other than /usr/local/share/sgml.
@@ -159,17 +169,9 @@
        (ad-set-arg 1 (cons "-//PSGML//DTD HTML 5//EN"
                            (cons nil default-directory)))))
 
-(defvar psgml-html-mode-hook nil
-  "A hook or list of hooks to be run when entering psgml-html-mode")
-
 ;;;###autoload
-(defun psgml-html-mode ()
-  "Pseudo major mode for editing HTML with PSGML.
-It's pseudo because it does not have its own keymap or other mode-specific
-variables, except for a hook: `psgml-html-mode-hook'.  For everything else,
-see `sgml-mode'."
-  (interactive)
-  (sgml-mode)
+(define-derived-mode psgml-html-mode sgml-mode "PHTML"
+  "Derived major mode for editing HTML with PSGML (see `sgml-mode')."
   (set (make-local-variable 'sentence-end-double-space)    nil)
   (set (make-local-variable 'sgml-always-quote-attributes) t)
   (set (make-local-variable 'sgml-default-doctype-name)    "HTML")
@@ -182,7 +184,6 @@ see `sgml-mode'."
         sgml-minimize-attributes nil
         sgml-omittag             t)
   (or sgml-auto-activate-dtd
-      (set (make-local-variable 'sgml-auto-activate-dtd) t))
-  (run-hooks 'psgml-html-mode-hook))
+      (set (make-local-variable 'sgml-auto-activate-dtd) t)))
 
 ;;; psgml-html.el ends here
