@@ -138,6 +138,12 @@
   onkeyup     %Script;       #IMPLIED  -- a key was released --"
   >
 
+<!ENTITY % microdata
+ "itemprop    CDATA          #IMPLIED  -- the key for a microdata value --
+  itemscope   (itemscope)    #IMPLIED  -- scope enclosing related microdata --
+  itemtype    %URI;          #IMPLIED  -- the microdata vocabulary in use --"
+  >
+
 <!-- Reserved Feature Switch -->
 <!ENTITY % HTML.Reserved "IGNORE">
 
@@ -152,7 +158,7 @@
 
 <!ENTITY % reserved "">
 
-<!ENTITY % attrs "%coreattrs; %i18n; %events;">
+<!ENTITY % attrs "%coreattrs; %i18n; %events; %microdata;">
 
 
 <!--=================== Text Markup ======================================-->
