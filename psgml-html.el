@@ -163,7 +163,7 @@
     (setq sgml-custom-dtd psgml-html-dtd-menu))
 
 (defadvice sgml-setup-doctype (before psgml-html5 activate)
-  "Add a fake public id for HTML 5 so PSGML can find the DTD."
+  "Add a fake public id for HTML5 so PSGML can find the DTD."
   (and (string= (ad-get-arg 0) "HTML")
        (null    (ad-get-arg 1))
        (ad-set-arg 1 (cons "-//PSGML//DTD HTML 5//EN"

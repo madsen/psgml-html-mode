@@ -1,7 +1,7 @@
 PSGML for HTML
 ==============
 
-[PSGML](http://www.lysator.liu.se/~lenst/about_psgml/) is a GNU Emacs Major Mode for editing SGML and XML coded documents. This is a collection of DTDs and Emacs Lisp code to help set up PSGML for editing HTML files (including preliminary support for HTML 5).
+[PSGML](http://www.lysator.liu.se/~lenst/about_psgml/) is a GNU Emacs Major Mode for editing SGML and XML coded documents. This is a collection of DTDs and Emacs Lisp code to help set up PSGML for editing HTML files (including preliminary support for HTML5).
 
 You can download this code using `git clone` or just get a [tarball](https://github.com/madsen/psgml-html/tarball/master).
 
@@ -25,21 +25,21 @@ Finally, install `psgml-html.el` in a directory where Emacs can find it, and put
 ```
 
 
-HTML 5 Support
+HTML5 Support
 ==============
 
-`psgml-html-mode` has preliminary support for HTML 5.  PSGML needs a
+`psgml-html-mode` has preliminary support for HTML5.  PSGML needs a
 DTD to describe the elements and attributes that can appear in a
-document.  This causes two problems with HTML 5 and PSGML.
+document.  This causes two problems with HTML5 and PSGML.
 
 PSGML finds the DTD based on a DOCTYPE declaration in the
-document.  But PSGML doesn't recognize the HTML 5 declaration
+document.  But PSGML doesn't recognize the HTML5 declaration
 (`<!DOCTYPE html>`).  `psgml-html-mode` adds [advice](http://www.gnu.org/s/emacs/manual/html_node/elisp/Advising-Functions.html) to PSGML to
-associate the HTML 5 doctype with `html5.dtd`.
+associate the HTML5 doctype with `html5.dtd`.
 
-The other problem is that there is no official HTML 5 DTD.  I just
+The other problem is that there is no official HTML5 DTD.  I just
 copied `html4strict.dtd` to `html5.dtd`.  I'll be modifying the DTD to
-incorporate HTML 5's changes as I have need for them.  Please feel
+incorporate HTML5's changes as I have need for them.  Please feel
 free to submit pull requests with improvements to the DTD.
 
 
