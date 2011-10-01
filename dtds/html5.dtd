@@ -165,10 +165,10 @@
 <!--=================== Text Markup ======================================-->
 
 <!ENTITY % fontstyle
- "TT | I | B | BIG | SMALL">
+ "I | B | SMALL">
 
 <!ENTITY % phrase "EM | STRONG | DFN | CODE |
-                   SAMP | KBD | VAR | CITE | ABBR | ACRONYM | TIME | MARK" >
+                   SAMP | KBD | VAR | CITE | ABBR | TIME | MARK" >
 
 <!ENTITY % special
    "A | IMG | OBJECT | BR | SCRIPT | MAP | Q | SUB | SUP | SPAN | BDO">
@@ -429,7 +429,7 @@
 <!--=================== Preformatted Text ================================-->
 
 <!-- excludes markup for images and changes in font size -->
-<!ENTITY % pre.exclusion "IMG|OBJECT|BIG|SMALL|SUB|SUP">
+<!ENTITY % pre.exclusion "IMG|OBJECT|SMALL|SUB|SUP">
 
 <!ELEMENT PRE - - (%inline;)* -(%pre.exclusion;) -- preformatted text -->
 <!ATTLIST PRE
