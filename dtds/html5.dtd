@@ -1,5 +1,5 @@
 <!--
-    This is an experimental HTML 5 DTD derived from the HTML 4.01
+    This is an experimental HTML5 DTD derived from the HTML 4.01
     Strict DTD.
 
     The HTML 4.01 Strict DTD was:
@@ -94,6 +94,7 @@
 
 <!ENTITY % preformatted "PRE">
 
+<!ENTITY % semanticblock "SECTION | NAV | ARTICLE | ASIDE | HEADER | FOOTER">
 
 <!--================ Character mnemonic entities =========================-->
 
@@ -167,7 +168,7 @@
  "TT | I | B | BIG | SMALL">
 
 <!ENTITY % phrase "EM | STRONG | DFN | CODE |
-                   SAMP | KBD | VAR | CITE | ABBR | ACRONYM" >
+                   SAMP | KBD | VAR | CITE | ABBR | ACRONYM | TIME | MARK" >
 
 <!ENTITY % special
    "A | IMG | OBJECT | BR | SCRIPT | MAP | Q | SUB | SUP | SPAN | BDO">
@@ -216,8 +217,8 @@
 -->
 
 <!ENTITY % block
-     "P | %heading; | %list; | %preformatted; | DL | DIV | NOSCRIPT |
-      BLOCKQUOTE | FORM | HR | TABLE | FIELDSET | ADDRESS">
+     "P | %heading; | HGROUP | %list; | %preformatted; | DL | DIV | NOSCRIPT |
+      BLOCKQUOTE | FORM | HR | TABLE | FIELDSET | ADDRESS | %semanticblock;">
 
 <!ENTITY % flow "%block; | %inline;">
 
@@ -241,6 +242,10 @@
   %reserved;                           -- reserved for possible future use --
   >
 
+<!ELEMENT (%semanticblock;) - - (%flow;)* -- semantic containers -->
+<!ATTLIST (%semanticblock;)
+  %attrs;                              -- %coreattrs, %i18n, %events --
+  >
 
 <!--================== The Anchor Element ================================-->
 
@@ -413,6 +418,11 @@
 
 <!ELEMENT (%heading;)  - - (%inline;)* -- heading -->
 <!ATTLIST (%heading;)
+  %attrs;                              -- %coreattrs, %i18n, %events --
+  >
+
+<!ELEMENT HGROUP - - (%heading;)* -- heading -->
+<!ATTLIST HGROUP
   %attrs;                              -- %coreattrs, %i18n, %events --
   >
 
