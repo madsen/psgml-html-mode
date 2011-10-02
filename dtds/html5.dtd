@@ -175,7 +175,7 @@
 
 <!ENTITY % formctrl "INPUT | SELECT | TEXTAREA | LABEL | BUTTON">
 
-<!ENTITY % inlineblock "CANVAS">
+<!ENTITY % inlineblock "CANVAS | VIDEO | AUDIO">
 
 <!-- %inline; covers inline or "text-level" elements -->
 <!ENTITY % inlinestrict
@@ -359,6 +359,51 @@
   %attrs;                              -- %coreattrs, %i18n, %events --
   height      %Length;       #IMPLIED  -- override height --
   width       %Length;       #IMPLIED  -- override width --
+  >
+
+<!--========================= Media ==================================-->
+
+<!ENTITY % mediaattrs
+ "src         %URI;          #IMPLIED  -- document-wide unique id --
+  preload     (none|metadata|auto) #IMPLIED  -- preload type --
+  autoplay    (autoplay)     #IMPLIED  -- play automatically if present --
+  mediagroup  %Text;         #IMPLIED  -- groups media elements --
+  loop        (loop)         #IMPLIED  -- loop infinitely if present --
+  muted       (muted)        #IMPLIED  -- initially muted if present --
+  controls    (controls)     #IMPLIED  -- UA should provide controls if present --"
+  >
+
+<!ELEMENT AUDIO - - (SOURCE | TRACK | %flow;)* -- embedded audio -->
+<!ATTLIST AUDIO
+  %attrs;                              -- %coreattrs, %i18n, %events --
+  %mediaattrs;                         -- common media attributes --
+  >
+
+<!ELEMENT VIDEO - - (SOURCE | TRACK | %flow;)* -- embedded video -->
+<!ATTLIST VIDEO
+  %attrs;                              -- %coreattrs, %i18n, %events --
+  %mediaattrs;                         -- common media attributes --
+  poster      %URI;          #IMPLIED  -- image shown when video stopped --
+  height      %Length;       #IMPLIED  -- override height --
+  width       %Length;       #IMPLIED  -- override width --
+  >
+
+<!ELEMENT SOURCE - O EMPTY             -- alternative media resource -->
+<!ATTLIST SOURCE
+  %attrs;                              -- %coreattrs, %i18n, %events --
+  src         %URI;          #REQUIRED -- location of media resource --
+  type        %ContentType;  #IMPLIED  -- MIME-type of media resource --
+  media       CDATA          #IMPLIED  -- valid media query --
+  >
+
+<!ELEMENT TRACK - O EMPTY              -- associated text track -->
+<!ATTLIST TRACK
+  %attrs;                              -- %coreattrs, %i18n, %events --
+  kind        (subtitles|captions|descriptions|chapters|metadata) #IMPLIED
+  src         %URI;          #REQUIRED -- location of media resource --
+  srclang     %LanguageCode; #IMPLIED  -- language code --
+  label       %Text;         #IMPLIED  -- track title --
+  default     (default)      #IMPLIED  -- present if default track --
   >
 
 <!--==================== OBJECT ======================================-->
