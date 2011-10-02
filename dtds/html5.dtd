@@ -175,8 +175,13 @@
 
 <!ENTITY % formctrl "INPUT | SELECT | TEXTAREA | LABEL | BUTTON">
 
+<!ENTITY % inlineblock "CANVAS">
+
 <!-- %inline; covers inline or "text-level" elements -->
-<!ENTITY % inline "#PCDATA | %fontstyle; | %phrase; | %special; | %formctrl;">
+<!ENTITY % inlinestrict
+   "#PCDATA | %fontstyle; | %phrase; | %special; | %formctrl;">
+
+<!ENTITY % inline "%inlinestrict; | %inlineblock;">
 
 <!ELEMENT (%fontstyle;|%phrase;) - - (%inline;)*>
 <!ATTLIST (%fontstyle;|%phrase;)
@@ -216,11 +221,13 @@
         %block;      block-like elements e.g. paragraphs and lists
 -->
 
-<!ENTITY % block
+<!ENTITY % blockstrict
      "P | %heading; | HGROUP | %list; | %preformatted; | DL | DIV | NOSCRIPT |
       BLOCKQUOTE | FORM | HR | TABLE | FIELDSET | ADDRESS | %semanticblock;">
 
-<!ENTITY % flow "%block; | %inline;">
+<!ENTITY % block "%blockstrict; | %inlineblock;">
+
+<!ENTITY % flow "%blockstrict; | %inlineblock; | %inlinestrict;">
 
 <!--=================== Document Body ====================================-->
 
@@ -346,6 +353,13 @@
 
 <!-- USEMAP points to a MAP element which may be in this document
   or an external document, although the latter is not widely supported -->
+
+<!ELEMENT CANVAS - - (%flow;)*         -- drawing region -->
+<!ATTLIST CANVAS
+  %attrs;                              -- %coreattrs, %i18n, %events --
+  height      %Length;       #IMPLIED  -- override height --
+  width       %Length;       #IMPLIED  -- override width --
+  >
 
 <!--==================== OBJECT ======================================-->
 <!--
